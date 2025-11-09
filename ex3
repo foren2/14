@@ -1,0 +1,51 @@
+using System;
+
+// Базовый класс сообщения
+class Message
+{
+    public virtual void Send()
+    {
+        Console.WriteLine("Сообщение отправлено.");
+    }
+}
+
+// Класс email
+class Email : Message
+{
+    public override void Send()
+    {
+        Console.WriteLine("Email отправлен!");
+    }
+}
+
+// Класс SMS
+class SMS : Message
+{
+    public override void Send()
+    {
+        Console.WriteLine("SMS отправлено!");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Создаём массив сообщений
+        Message[] messages = { new Email(), new SMS(), new Message() };
+
+        // Проходим по массиву и вызываем Send() для каждого
+        foreach (var m in messages)
+        {
+            m.Send();
+        }
+    }
+}
+
+
+
+
+
+
+
+
